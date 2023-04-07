@@ -1,4 +1,4 @@
-package com.example.disneyapp
+package com.example.disneyapp.UI.Main
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -17,7 +17,7 @@ class MainViewModel @Inject constructor(
     fun getDisney(){
         viewModelScope.launch {
             useCase.getDisneyModel().forEach {
-                println(it.name)
+                println(it.imageUrl)
             }
         }
     }
