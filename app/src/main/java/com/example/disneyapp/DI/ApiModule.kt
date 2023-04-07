@@ -1,6 +1,8 @@
 package com.example.disneyapp.DI
 
-import com.example.disneyapp.Remote.IDisneyApi
+import com.example.disneyapp.Data.remote.DisneyApiRepository
+import com.example.disneyapp.Data.remote.DisneyApiRepositoryImpl
+import com.example.disneyapp.Data.remote.api.IDisneyApi
 import com.example.disneyapp.Util.Constant.Companion.BaseUrl
 import com.google.gson.GsonBuilder
 import dagger.Module
@@ -38,7 +40,13 @@ class ApiModule {
 
     @Singleton
     @Provides
-    fun getDisneyApi() : IDisneyApi{
+    fun getDisneyApi() : IDisneyApi {
         return ApiModule().getRetrofit().create(IDisneyApi::class.java)
+    }
+
+    @Singleton
+    @Provides
+    fun provideRegisterRepository(disneyApi: IDisneyApi) : DisneyApiRepository {
+        return DisneyApiRepositoryImpl(disneyApi)
     }
 }
