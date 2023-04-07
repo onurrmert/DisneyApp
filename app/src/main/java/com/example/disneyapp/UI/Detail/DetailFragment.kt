@@ -7,7 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.disneyapp.R
 import com.example.disneyapp.databinding.FragmentDetailBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class DetailFragment : Fragment() {
 
     private lateinit var binding: FragmentDetailBinding

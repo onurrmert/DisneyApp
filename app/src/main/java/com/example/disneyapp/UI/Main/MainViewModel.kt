@@ -2,21 +2,21 @@ package com.example.disneyapp.UI.Main
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.disneyapp.Domain.UseCase
+import com.example.disneyapp.Domain.ApiUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class MainViewModel @Inject constructor(
-    private val useCase: UseCase
+    private val useCase: ApiUseCase
 ) : ViewModel(){
     init {
         getDisney()
     }
     fun getDisney(){
         viewModelScope.launch {
-            useCase.getDisneyModel().forEach {
+            useCase.getChacracter().forEach {
                 println(it.imageUrl)
             }
         }
