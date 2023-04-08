@@ -9,16 +9,13 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.disneyapp.databinding.FragmentMainBinding
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainFragment : Fragment() {
 
     private lateinit var binding : FragmentMainBinding
 
-    private val viewModel by lazy {
-        ViewModelProvider(this, defaultViewModelProviderFactory).get(MainViewModel::class.java)
-    }
+    private lateinit var viewModel : MainViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,6 +31,7 @@ class MainFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        viewModel = ViewModelProvider(this, defaultViewModelProviderFactory).get(MainViewModel::class.java)
         getCharacter()
     }
 

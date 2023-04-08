@@ -12,7 +12,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MainViewModel @Inject constructor(
-    private val useCase: ApiUseCase
+    private val useCase: ApiUseCase,
 ) : ViewModel(){
 
     private val _disneyData = MutableLiveData<List<DisneyData>>()
