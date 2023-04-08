@@ -1,38 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
-    android:id="@+id/recyclerRow"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:background="@drawable/recycler_background"
-    android:layout_margin="10dp"
+    android:id="@+id/recyclerRow"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:background="@drawable/recycler_background"
+    android:padding="5dp">
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="1dp">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
         <ImageView
             android:id="@+id/imageView"
+            android:layout_width="240dp"
+            android:layout_height="200dp"
             android:layout_gravity="center"
             android:foregroundGravity="center"
-            android:layout_width="240dp"
-            android:padding="10dp"
-            android:layout_height="200dp"
             app:srcCompat="@drawable/ic_launcher_background" />
 
         <TextView
-            android:layout_gravity="center"
-            android:gravity="center"
             android:id="@+id/textView"
-            android:textSize="20sp"
-            android:textColor="@color/dark_green"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="TextView"
+            android:textColor="@color/dark_green"
+            android:textSize="20sp" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

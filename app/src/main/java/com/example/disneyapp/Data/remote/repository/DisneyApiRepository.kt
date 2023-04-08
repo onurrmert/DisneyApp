@@ -1,4 +1,4 @@
-package com.example.disneyapp.Data.remote
+package com.example.disneyapp.Data.remote.repository
 
 import com.example.disneyapp.Model.DisneyData
 

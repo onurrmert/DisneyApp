@@ -5,7 +5,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.disneyapp.R
 import com.example.disneyapp.databinding.FragmentDetailBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -30,5 +29,12 @@ class DetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        println("id: " + getID())
+    }
+
+    private fun getID(): Int{
+        val bundle = arguments
+        val args = DetailFragmentArgs.fromBundle(bundle!!)
+        return args.id
     }
 }

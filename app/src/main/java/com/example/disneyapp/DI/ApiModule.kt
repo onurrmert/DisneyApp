@@ -1,7 +1,7 @@
 package com.example.disneyapp.DI
 
-import com.example.disneyapp.Data.remote.DisneyApiRepository
-import com.example.disneyapp.Data.remote.DisneyApiRepositoryImpl
+import com.example.disneyapp.Data.remote.repository.DisneyApiRepository
+import com.example.disneyapp.Data.remote.repository.DisneyApiRepositoryImpl
 import com.example.disneyapp.Data.remote.api.IDisneyApi
 import com.example.disneyapp.Util.Constant.Companion.BaseUrl
 import com.google.gson.GsonBuilder

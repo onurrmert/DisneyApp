@@ -3,6 +3,7 @@ package com.example.disneyapp.UI.Main
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.disneyapp.Model.DisneyData
@@ -35,6 +36,11 @@ class MainFragmentAdapter(
             .error(R.drawable.ic_launcher_background)
             .into(holder.binding.imageView)
 
-        holder.binding.textView.text = dataList.get(position).name
+        holder.binding.textView.text = dataList.get(position).name ?: ""
+
+        holder.binding.recyclerRow.setOnClickListener {
+            val direction = MainFragmentDirections.actionMainFragment2ToDetailFragment(dataList.get(position)._id!!)
+            Navigation.findNavController(it).navigate(direction)
+        }
     }
 }

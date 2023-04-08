@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
-import com.example.disneyapp.R
 import com.example.disneyapp.databinding.FragmentMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -28,24 +27,26 @@ class MainFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        // Inflate the layout for this fragment
         binding = FragmentMainBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         getCharacter()
-
     }
 
     private fun getCharacter(){
         viewModel.disneyData.observe(viewLifecycleOwner, {
             item->
             if (item.size > 0){
+                binding.progressBar.visibility = View.GONE
+                binding.recyclerView.visibility = View.VISIBLE
                 binding.recyclerView.adapter = MainFragmentAdapter(item)
                 binding.recyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
+            }else{
+                binding.progressBar.visibility = View.VISIBLE
+                binding.recyclerView.visibility = View.GONE
             }
         })
     }
