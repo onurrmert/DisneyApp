@@ -29,9 +29,12 @@ class MainFragmentAdapter(
     }
 
     override fun onBindViewHolder(holder: MainViewHolder, position: Int) {
+
         Glide.with(holder.itemView.context)
             .load(dataList.get(position).imageUrl)
             .error(R.drawable.ic_launcher_background)
             .into(holder.binding.imageView)
+
+        holder.binding.textView.text = dataList.get(position).name
     }
 }

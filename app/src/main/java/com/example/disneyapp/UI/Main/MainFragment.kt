@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
 import com.example.disneyapp.R
 import com.example.disneyapp.databinding.FragmentMainBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -35,5 +36,16 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        getCharacter()
+    }
+
+    private fun getCharacter(){
+        viewModel.disneyData.observe(viewLifecycleOwner, {
+            item->
+            if (item.size > 0){
+                binding.recyclerView.adapter = MainFragmentAdapter(item)
+                binding.recyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
+            }
+        })
     }
 }

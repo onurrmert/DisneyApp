@@ -46,7 +46,7 @@ class ApiModule {
 
     @Singleton
     @Provides
-    fun provideRegisterRepository(disneyApi: IDisneyApi) : DisneyApiRepository {
+    fun provideDisneyApiRepository(disneyApi: IDisneyApi) : DisneyApiRepository {
         return DisneyApiRepositoryImpl(disneyApi)
     }
 }
