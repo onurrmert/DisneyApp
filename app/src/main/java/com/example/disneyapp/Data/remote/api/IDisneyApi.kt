@@ -1,5 +1,6 @@
 package com.example.disneyapp.Data.remote.api
 
+import com.example.disneyapp.Model.DisneyData
 import com.example.disneyapp.Model.DisneyModel
 import com.example.disneyapp.Util.Constant.Companion.CharactersUrl
 import retrofit2.Response
@@ -11,6 +12,6 @@ interface IDisneyApi {
     @GET(CharactersUrl)
     suspend fun getDisney() : Response<DisneyModel>
 
-    @GET("CharactersUrl")
-    suspend fun getOneCharacter(@Query("id") id: String) : Response<DisneyModel>
+    @GET("characters/{id}")
+    suspend fun getOneCharacter(@Path("id") id : Int) : Response<DisneyData>
 }

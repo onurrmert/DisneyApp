@@ -1,5 +1,6 @@
 package com.example.disneyapp.UI.Main
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -19,12 +20,16 @@ class MainViewModel @Inject constructor(
     val disneyData : MutableLiveData<List<DisneyData>> get() = _disneyData
 
     init {
-        getDisney()
+        getDisneyCharacters()
     }
 
-    fun getDisney(){
+    fun getDisneyCharacters(){
         viewModelScope.launch {
-            _disneyData.value = useCase.getChacracter()
+            try {
+                _disneyData.value = useCase.getChacracter()
+            }catch (e: Exception){
+                Log.e("getDisneyCharacters error: " , e.localizedMessage!!)
+            }
         }
     }
 }

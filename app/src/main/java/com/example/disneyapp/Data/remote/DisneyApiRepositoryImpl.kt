@@ -11,4 +11,8 @@ class DisneyApiRepositoryImpl @Inject constructor(
     override suspend fun getCharacter(): List<DisneyData> {
         return disneyApi.getDisney().body()!!.data as List<DisneyData>
     }
+
+    override suspend fun getOneCharacter(id : Int): DisneyData {
+        return disneyApi.getOneCharacter(id).body()!!
+    }
 }

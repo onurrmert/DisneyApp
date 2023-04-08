@@ -10,4 +10,8 @@ class ApiUseCase @Inject constructor(
     suspend fun getChacracter() : List<DisneyData>{
         return disneyApiRepository.getCharacter()
     }
+
+    suspend fun getOneCharacter(id : Int) : DisneyData{
+        return disneyApiRepository.getOneCharacter(id)
+    }
 }

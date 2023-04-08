@@ -37,6 +37,7 @@ class MainFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         getCharacter()
+
     }
 
     private fun getCharacter(){

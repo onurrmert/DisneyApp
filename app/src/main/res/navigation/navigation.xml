@@ -30,10 +30,9 @@
         android:name="com.example.disneyapp.UI.Detail.DetailFragment"
         android:label="fragment_detail"
         tools:layout="@layout/fragment_detail" >
-        <action
-            android:id="@+id/action_detailFragment_to_mainFragment2"
-            app:destination="@id/mainFragment2"
-            app:popUpTo="@id/detailFragment"
-            app:popUpToInclusive="true" />
+        <argument
+            android:name="id"
+            app:argType="integer"
+            android:defaultValue="6" />
     </fragment>
 </navigation>
