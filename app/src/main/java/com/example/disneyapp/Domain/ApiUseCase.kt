@@ -1,7 +1,7 @@
 package com.example.disneyapp.Domain
 
 import com.example.disneyapp.Data.remote.repository.DisneyApiRepository
-import com.example.disneyapp.Model.DisneyData
+import com.example.disneyapp.Data.remote.Model.DisneyData
 import javax.inject.Inject
 
 class ApiUseCase @Inject constructor(
@@ -11,7 +11,7 @@ class ApiUseCase @Inject constructor(
         return disneyApiRepository.getCharacter()
     }
 
-    suspend fun getOneCharacter(id : Int) : DisneyData{
+    suspend fun getOneCharacter(id : Int) : DisneyData {
         return disneyApiRepository.getOneCharacter(id)
     }
 }

@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.disneyapp.Model.DisneyData
+import com.example.disneyapp.Data.remote.Model.DisneyData
 import com.example.disneyapp.R
 import com.example.disneyapp.databinding.MainRecyclerRowBinding
 

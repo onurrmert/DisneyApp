@@ -1,4 +1,4 @@
-package com.example.disneyapp.Model
+package com.example.disneyapp.Data.remote.Model
 
 data class DisneyData(
     val _id: Int?,

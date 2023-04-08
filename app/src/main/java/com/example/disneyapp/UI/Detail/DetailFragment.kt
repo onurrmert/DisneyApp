@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
-import com.example.disneyapp.Model.DisneyData
+import com.example.disneyapp.Data.remote.Model.DisneyData
 import com.example.disneyapp.R
 import com.example.disneyapp.databinding.FragmentDetailBinding
 import dagger.hilt.android.AndroidEntryPoint

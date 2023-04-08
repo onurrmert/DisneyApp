@@ -1,7 +1,7 @@
 package com.example.disneyapp.Data.remote.repository
 
 import com.example.disneyapp.Data.remote.api.IDisneyApi
-import com.example.disneyapp.Model.DisneyData
+import com.example.disneyapp.Data.remote.Model.DisneyData
 import javax.inject.Inject
 
 class DisneyApiRepositoryImpl @Inject constructor(

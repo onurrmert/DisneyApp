@@ -1,4 +1,4 @@
-package com.example.disneyapp.Model
+package com.example.disneyapp.Data.remote.Model
 
 data class DisneyModel(
     val count: Int?,
