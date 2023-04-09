@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.disneyapp.UI.Adapter.FragmentAdapter
 import com.example.disneyapp.Util.OnItemClick
@@ -51,8 +52,8 @@ class FavoriteFragment : Fragment() {
                 binding.recyclerView2.adapter = FragmentAdapter(null, item,
                     object : OnItemClick{
                         override fun clickListener(id: Int) {
-                            //val direction = FavoriteFragmentDirections.actionFavoriteFragmentToDetailFragment(id)
-                            //Navigation.findNavController(requireView()).navigate(direction)
+                            val direction = FavoriteFragmentDirections.actionFavoriteFragmentToFavoriteDetailFragment(id)
+                            Navigation.findNavController(requireView()).navigate(direction)
                         }
                     })
             }else{
