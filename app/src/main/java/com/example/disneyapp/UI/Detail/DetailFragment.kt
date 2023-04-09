@@ -37,7 +37,9 @@ class DetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         viewModel.getDisneyData(getID())
+
         getDisneyData()
     }
 
@@ -71,7 +73,6 @@ class DetailFragment : Fragment() {
     }
 
     private fun createDisneyCharacter(disneyData: DisneyData) {
-
         Glide.with(requireContext())
             .load(disneyData.imageUrl)
             .error(R.drawable.disney_img)

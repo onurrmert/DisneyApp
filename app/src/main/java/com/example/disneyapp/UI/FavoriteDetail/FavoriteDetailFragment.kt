@@ -39,8 +39,11 @@ class FavoriteDetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         viewModel.getData(getID())
+
         getDisneyData()
+
         binding.deleteBtn.setOnClickListener {
             delete()
         }
@@ -57,7 +60,8 @@ class FavoriteDetailFragment : Fragment() {
     }
 
     private fun getDisneyData(){
-        viewModel.disneyEntity
+        viewModel
+            .disneyEntity
             .observe(viewLifecycleOwner, {
                 item->
             if (item != null){
@@ -72,7 +76,6 @@ class FavoriteDetailFragment : Fragment() {
     }
 
     private fun createDisneyCharacter(disneyEntity: DisneyEntity) {
-
         Glide.with(requireContext())
             .load(disneyEntity.imageUrl)
             .error(R.drawable.disney_img)

@@ -34,7 +34,7 @@ class SplashFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         CoroutineScope(Dispatchers.Main).launch {
-            delay(1000)
+            delay(800)
             val direction = SplashFragmentDirections.actionSplashFragmentToMainFragment2()
             Navigation.findNavController(view).navigate(direction)
         }

@@ -9,7 +9,7 @@ import com.example.disneyapp.Data.local.Entity.DisneyEntity
 import com.example.disneyapp.Data.remote.Model.DisneyData
 import com.example.disneyapp.R
 import com.example.disneyapp.Util.OnItemClick
-import com.example.disneyapp.databinding.MainRecyclerRowBinding
+import com.example.disneyapp.databinding.RecyclerRowBinding
 
 class FragmentAdapter(
     private val dataList : List<DisneyData>?,
@@ -18,13 +18,13 @@ class FragmentAdapter(
     ) : RecyclerView.Adapter<FragmentAdapter.FragmentViewHolder>(){
 
     class FragmentViewHolder(view: View) : RecyclerView.ViewHolder(view){
-        val binding = MainRecyclerRowBinding.bind(view)
+        val binding = RecyclerRowBinding.bind(view)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FragmentViewHolder {
         return FragmentViewHolder(
             LayoutInflater.from(parent.context)
-                .inflate(R.layout.main_recycler_row, parent, false)
+                .inflate(R.layout.recycler_row, parent, false)
         )
     }
 
@@ -37,7 +37,6 @@ class FragmentAdapter(
     }
 
     override fun onBindViewHolder(holder: FragmentViewHolder, position: Int) {
-
         if (dataList != null){
             Glide.with(holder.itemView.context)
                 .load(dataList.get(position).imageUrl)

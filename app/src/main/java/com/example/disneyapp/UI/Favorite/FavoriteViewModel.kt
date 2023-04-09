@@ -6,7 +6,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.disneyapp.Data.local.Entity.DisneyEntity
 import com.example.disneyapp.Data.local.Repository.DatabaseRepository
-import com.example.disneyapp.Data.remote.Model.DisneyData
 import com.example.disneyapp.Util.Extension.Companion.toast
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch

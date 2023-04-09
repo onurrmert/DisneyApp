@@ -2,9 +2,6 @@ package com.example.disneyapp.Data.local.Repository
 
 import com.example.disneyapp.Data.local.Dao.IDisneyDao
 import com.example.disneyapp.Data.local.Entity.DisneyEntity
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class DatabaseRepositoruImpl @Inject constructor(
@@ -12,9 +9,7 @@ class DatabaseRepositoruImpl @Inject constructor(
 ) : DatabaseRepository {
 
     override suspend fun insert(disneyEntity: DisneyEntity) {
-        CoroutineScope(Dispatchers.IO).launch {
             disneyDao.insert(disneyEntity)
-        }
     }
 
     override suspend fun getAll(): List<DisneyEntity> {
