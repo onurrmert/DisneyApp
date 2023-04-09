@@ -23,4 +23,10 @@ class FavoriteDetailViewModel @Inject constructor(
             _disneyEntity.value = dataseUseCase.getOne(id)
         }
     }
+    
+    fun delete(id : Int){
+        viewModelScope.launch {
+            dataseUseCase.delete(id)
+        }
+    }
 }

@@ -1,5 +1,7 @@
 package com.example.disneyapp.UI.FavoriteDetail
 
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,6 +12,7 @@ import com.bumptech.glide.Glide
 import com.example.disneyapp.Data.local.Entity.DisneyEntity
 import com.example.disneyapp.R
 import com.example.disneyapp.UI.Detail.DetailFragmentArgs
+import com.example.disneyapp.Util.Extension.Companion.toast
 import com.example.disneyapp.databinding.FragmentFavoriteDetailBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -38,6 +41,19 @@ class FavoriteDetailFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         viewModel.getData(getID())
         getDisneyData()
+        binding.deleteBtn.setOnClickListener {
+            delete()
+        }
+    }
+
+    private fun delete(){
+        val alertDialog = AlertDialog.Builder(requireContext()).apply {
+            this.setMessage("Do you want delete")
+            this.setPositiveButton("Yes", DialogInterface.OnClickListener { dialog, which ->
+                viewModel.delete(getID())
+                requireContext().toast("Delete")
+            }).show()
+        }
     }
 
     private fun getDisneyData(){

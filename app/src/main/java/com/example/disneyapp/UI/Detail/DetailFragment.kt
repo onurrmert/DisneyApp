@@ -62,7 +62,7 @@ class DetailFragment : Fragment() {
 
     private fun alert(name: String, imageUrl: String){
         val alertDialog = AlertDialog.Builder(requireContext()).apply {
-            this.setMessage("Do you add favorite")
+            this.setMessage("Do you want to add favorite")
             this.setPositiveButton("Yes", DialogInterface.OnClickListener { dialog, which ->
                 viewModel.insert(name, imageUrl)
                 requireContext().toast("Favorites added")
