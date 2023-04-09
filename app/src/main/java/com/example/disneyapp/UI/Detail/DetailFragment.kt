@@ -1,5 +1,7 @@
 package com.example.disneyapp.UI.Detail
 
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.example.disneyapp.Data.remote.Model.DisneyData
 import com.example.disneyapp.R
+import com.example.disneyapp.Util.Extension.Companion.toast
 import com.example.disneyapp.databinding.FragmentDetailBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -44,12 +47,27 @@ class DetailFragment : Fragment() {
             if (item != null){
                 binding.progressBar.visibility = View.GONE
                 binding.detailFragment.visibility = View.VISIBLE
+
                 createDisneyCharacter(item)
+
+                binding.favorityBtn.setOnClickListener {
+                    item.name?.let { it1 -> item.imageUrl?.let { it2 -> alert(it1, it2) } }
+                }
             }else{
                 binding.progressBar.visibility = View.VISIBLE
                 binding.detailFragment.visibility = View.GONE
             }
         })
+    }
+
+    private fun alert(name: String, imageUrl: String){
+        val alertDialog = AlertDialog.Builder(requireContext()).apply {
+            this.setMessage("Do you add favorite")
+            this.setPositiveButton("Yes", DialogInterface.OnClickListener { dialog, which ->
+                viewModel.insert(name, imageUrl)
+                requireContext().toast("Favorites added")
+            }).show()
+        }
     }
 
     private fun createDisneyCharacter(disneyData: DisneyData) {

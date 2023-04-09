@@ -11,7 +11,7 @@ class ApiUseCase @Inject constructor(
         return disneyApiRepository.getCharacter()
     }
 
-    suspend fun getOneCharacter(id : Int) : DisneyData {
+    suspend fun getOneCharacter(id : Int) : DisneyData? {
         return disneyApiRepository.getOneCharacter(id)
     }
 }

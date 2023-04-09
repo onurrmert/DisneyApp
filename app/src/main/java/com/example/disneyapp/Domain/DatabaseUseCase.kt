@@ -19,7 +19,7 @@ class DatabaseUseCase @Inject constructor(
         databaseRepository.delete(id)
     }
 
-    suspend fun getOne(id : Int) : DisneyEntity{
+    suspend fun getOne(id : Int) : DisneyEntity?{
         return databaseRepository.getOne(id)
     }
 }
